@@ -4,7 +4,7 @@
   <groupId>org.example</groupId>
   <artifactId>cloudengine-leads</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Archetype - cloudengine-leads</name>
+  <name>cloudengine-leads</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -16,6 +16,17 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>3.0.0</version>
     </dependency>
   </dependencies>
 
@@ -51,9 +62,9 @@
               <goal>jar</goal>
             </goals>
             <phase>package</phase>
-                                    <configuration>
-                                        <classifier>task</classifier>
-                                    </configuration>
+<!--                                    <configuration>-->
+<!--                                        <classifier>task</classifier>-->
+<!--                                    </configuration>-->
           </execution>
         </executions>
       </plugin>
