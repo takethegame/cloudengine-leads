@@ -31,7 +31,7 @@
         </selectKey>
     </insert>
 
-    <select id="queryByPhoneNumber" parameterType="String">
+    <select id="queryByPhoneNumber" parameterType="String" resultType="com.cloudengine.dao.dataobject.LeadsDO">
         select
         <include refid="column"/>
         from leads

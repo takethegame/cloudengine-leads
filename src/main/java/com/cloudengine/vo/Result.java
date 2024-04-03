@@ -30,4 +30,11 @@ public class Result<T> {
     public void setCode(int code) {
         this.code = code;
     }
+
+    public Result success(T t) {
+        code = 0;
+        msg = "sucess";
+        data = t;
+        return this;
+    }
 }
