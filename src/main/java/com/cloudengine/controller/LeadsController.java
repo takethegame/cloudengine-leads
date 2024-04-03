@@ -3,16 +3,15 @@ package com.cloudengine.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.cloudengine.service.LeadsService;
+import com.cloudengine.util.LeadsCheckUtil;
 import com.cloudengine.vo.LeadsVO;
 import com.cloudengine.vo.Result;
-import com.fasterxml.jackson.core.JsonGenerator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
-import javax.sql.DataSource;
 
 @RestController
 @Api(value = "API接口测试", tags = "API接口测试")
@@ -25,10 +24,20 @@ public class LeadsController {
     @PostMapping("/addleads")
     @ResponseBody
     public String addLeads(@ApiParam  @RequestBody LeadsVO leadsVO) {
+        Result<Boolean> r = new Result<>();
 
+        if(StringUtils.isEmpty(leadsVO.getPhoneNumber())
+                || StringUtils.isEmpty(leadsVO.getEmail())
+                || ! LeadsCheckUtil.validPhoneNumber(leadsVO.getPhoneNumber())
+                || ! LeadsCheckUtil.validEmail(leadsVO.getEmail())
+        ) {
+            r.failed(false);
+
+            return JSON.toJSONString(r);
+        }
         boolean b = leadsService.addLeads(leadsVO);
 
-        Result<Boolean> r = new Result<>();
+
         r.success(b);
 
         return JSON.toJSONString(r);

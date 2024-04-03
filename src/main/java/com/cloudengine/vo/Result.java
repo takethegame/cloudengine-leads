@@ -37,4 +37,11 @@ public class Result<T> {
         data = t;
         return this;
     }
+
+    public Result failed(T b) {
+        code = 1;
+        msg = "failed";
+        data = b;
+        return this;
+    }
 }

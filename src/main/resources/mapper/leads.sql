@@ -8,5 +8,6 @@ CREATE TABLE `leads` (
   `version` int NOT NULL,
   `extend_info` varchar(2048),
   `is_delete` int,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_phone_number` (`phone_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
