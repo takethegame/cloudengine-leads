@@ -7,4 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface LeadsMapper {
     long insert(LeadsDO leadsDO);
+
+    LeadsDO queryByPhoneNumber(String phoneNumber);
+
+    int update(LeadsDO leadsDO);
 }

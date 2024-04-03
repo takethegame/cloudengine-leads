@@ -6,14 +6,28 @@ import com.cloudengine.dao.mapper.LeadsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class LeadsDAO {
 
     @Autowired
     private LeadsMapper leadsMapper;
 
-    public boolean addLeads(LeadsDO leadsDO) {
+    public boolean createLeads(LeadsDO leadsDO) {
+        leadsDO.setUpdateDate(new Date());
+        leadsDO.setCreateDate(new Date());
+        leadsDO.setIsDelete(0);
+        leadsDO.setVersion(1);
         long l = leadsMapper.insert(leadsDO);
         return l > 0;
+    }
+
+    public LeadsDO queryByPhoneNumber(String phoneNumber) {
+        return leadsMapper.queryByPhoneNumber(phoneNumber);
+    }
+
+    public boolean update(LeadsDO leadsDO) {
+        return leadsMapper.update(leadsDO) > 0;
     }
 }
