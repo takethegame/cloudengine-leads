@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<mapper namespace="com.cloudengine.dao.mapper.LeadsMapper" xmlns="http://mybatis.org/schema/mybatis-mapper">
+
+<!--    <resultMap id="resultMap" type="com.locationNote.note.persistence.dataobject.LocationNoteDO">-->
+<!--        <result column="id" property="id" jdbcType="bigint" javaType="Long"/>-->
+<!--        <result column="create_time" property="createTime" jdbcType="date" javaType="java.util.Date"/>-->
+<!--        <result column="modified_time" property="modifiedTime" jdbcType="date" javaType="java.util.Date"/>-->
+<!--        <result column="user_id" property="userId" jdbcType="bigint" javaType="Long"/>-->
+<!--        <result column="longitude" property="longitude" jdbcType="varchar" javaType="String"/>-->
+<!--        <result column="latitude" property="latitude" jdbcType="varchar" javaType="String"/>-->
+<!--        <result column="location_name" property="locationName" jdbcType="varchar" javaType="String"/>-->
+<!--        <result column="title" property="title" jdbcType="varchar" javaType="String"/>-->
+<!--        <result column="not_content" property="notContent" jdbcType="text" javaType="String"/>-->
+<!--        <result column="deleted" property="deleted" jdbcType="tinyint" javaType="Integer"/>-->
+<!--    </resultMap>-->
+
+
+<!--    <sql id="column">-->
+<!--        `id`, `create_time`, `modified_time`, `user_id`, `longitude`, `latitude`,`location_name`,-->
+<!--        `title`, `note_content`, `deleted`-->
+<!--    </sql>-->
+
+<!--    <insert id="insert" parameterType="com.locationNote.note.persistence.dataobject.LocationNoteDO">-->
+<!--        insert into note-->
+<!--        (<include refid="column"/> )-->
+<!--        value (#{id}, now(), now(), #{userId}, #{longitude}, #{latitude}, #{locationName}, #{title}, #{noteContent}, #{deleted});-->
+<!--        <selectKey keyProperty="id" keyColumn="id" order="AFTER" resultType="Long">-->
+<!--            select last_insert_id()-->
+<!--        </selectKey>-->
+<!--    </insert>-->
+
+<!--    <select id="queryById" parameterType="Long">-->
+<!--        select-->
+<!--        <include refid="column"/>-->
+<!--        from note-->
+<!--        where id = #{id}-->
+<!--    </select>-->
+
+<!--    <update id="update" parameterType="com.locationNote.note.persistence.dataobject.LocationNoteDO" >-->
+<!--        update note-->
+<!--        <set>-->
+<!--            <if test="longitude != null">-->
+<!--                longitude = #{longitude} ,-->
+<!--            </if>-->
+<!--            <if test="latitude != null">-->
+<!--                latitude = #{latitude} ,-->
+<!--            </if>-->
+<!--            <if test="locationNote != null">-->
+<!--                location_note = #{locationNote} ,-->
+<!--            </if>-->
+<!--            <if test="locationName != null">-->
+<!--                location_name = #{locationName} ,-->
+<!--            </if>-->
+<!--            <if test="title != null">-->
+<!--                title != #{title} ,-->
+<!--            </if>-->
+<!--            <if test="noteContent != null">-->
+<!--                note_content = #{noteContent} ,-->
+<!--            </if>-->
+<!--            modified_time = now()-->
+<!--        </set>-->
+<!--        where id = #{id}-->
+<!--    </update>-->
+
+<!--    <update id="markDelete" parameterType="com.locationNote.note.persistence.dataobject.LocationNoteDO">-->
+<!--        update note set deleted = #{deleted}, modified_time = now() where id = #{id}-->
+<!--    </update>-->
+
+<!--    <select id="count" parameterType="com.locationNote.note.persistence.dataobject.LocationNoteQueryParam">-->
+<!--        select count(1) from note-->
+<!--        <where>-->
+<!--            <if test="userId != null">-->
+<!--                user_id = #{userId}-->
+<!--            </if>-->
+<!--            <if test="title != null">-->
+<!--                title like "%#{title}%"-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+<!--    <select id="queryByPage" parameterType="com.locationNote.note.persistence.dataobject.LocationNoteQueryParam">-->
+<!--        select-->
+<!--        <include refid="column"/>-->
+<!--        from note-->
+<!--        <where>-->
+<!--            <if test="userId != null">-->
+<!--                user_id = #{userId}-->
+<!--            </if>-->
+<!--            <if test="title != null">-->
+<!--                title like "%#{title}%"-->
+<!--            </if>-->
+<!--        </where>-->
+<!--        limit #{pageStart}, #{pageSize}-->
+<!--    </select>-->
+</mapper>
