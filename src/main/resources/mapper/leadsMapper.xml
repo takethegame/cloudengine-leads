@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cloudengine.dao.mapper.LeadsMapper" xmlns="http://mybatis.org/schema/mybatis-mapper">
 
-<!--    <resultMap id="resultMap" type="com.locationNote.note.persistence.dataobject.LocationNoteDO">-->
-<!--        <result column="id" property="id" jdbcType="bigint" javaType="Long"/>-->
-<!--        <result column="create_time" property="createTime" jdbcType="date" javaType="java.util.Date"/>-->
-<!--        <result column="modified_time" property="modifiedTime" jdbcType="date" javaType="java.util.Date"/>-->
-<!--        <result column="user_id" property="userId" jdbcType="bigint" javaType="Long"/>-->
-<!--        <result column="longitude" property="longitude" jdbcType="varchar" javaType="String"/>-->
-<!--        <result column="latitude" property="latitude" jdbcType="varchar" javaType="String"/>-->
-<!--        <result column="location_name" property="locationName" jdbcType="varchar" javaType="String"/>-->
-<!--        <result column="title" property="title" jdbcType="varchar" javaType="String"/>-->
-<!--        <result column="not_content" property="notContent" jdbcType="text" javaType="String"/>-->
-<!--        <result column="deleted" property="deleted" jdbcType="tinyint" javaType="Integer"/>-->
+<mapper namespace="com.cloudengine.dao.mapper.LeadsMapper">
+<!--    <resultMap id="resultMap" type="com.cloudengine.dao.dataobject.LeadsDO">-->
+<!--        <result column="id" property="id" jdbcType="BIGINT" javaType="Long"/>-->
+<!--        <result column="create_Date" property="createDate" jdbcType="DATE" javaType="java.util.Date"/>-->
+<!--        <result column="update_Date" property="updateDate" jdbcType="DATE" javaType="java.util.Date"/>-->
+<!--        <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" javaType="String"/>-->
+<!--        <result column="email" property="email" jdbcType="VARCHAR" javaType="String"/>-->
+<!--        <result column="description" property="description" jdbcType="VARCHAR" javaType="String"/>-->
+<!--        <result column="version" property="version" jdbcType="int" javaType="Integer"/>-->
+<!--        <result column="extend_info" property="extendInfo" jdbcType="VARCHAR" javaType="String"/>-->
+<!--        <result column="is_delete" property="isDelete" jdbcType="TINYINT" javaType="Integer"/>-->
 <!--    </resultMap>-->
 
 
-<!--    <sql id="column">-->
-<!--        `id`, `create_time`, `modified_time`, `user_id`, `longitude`, `latitude`,`location_name`,-->
-<!--        `title`, `note_content`, `deleted`-->
-<!--    </sql>-->
+    <sql id="column">
+        `id`, `create_Date`, `update_Date`, `phone_number`, `email`, `description`,`version`,
+        `extend_info`, `is_delete`
+    </sql>
 
-<!--    <insert id="insert" parameterType="com.locationNote.note.persistence.dataobject.LocationNoteDO">-->
-<!--        insert into note-->
-<!--        (<include refid="column"/> )-->
-<!--        value (#{id}, now(), now(), #{userId}, #{longitude}, #{latitude}, #{locationName}, #{title}, #{noteContent}, #{deleted});-->
-<!--        <selectKey keyProperty="id" keyColumn="id" order="AFTER" resultType="Long">-->
-<!--            select last_insert_id()-->
-<!--        </selectKey>-->
-<!--    </insert>-->
+    <insert id="insert" parameterType="com.cloudengine.dao.dataobject.LeadsDO">
+        insert into note
+        (<include refid="column"/> )
+        value (#{id}, #{createDate}, #{updateDate}, #{phoneNumber}, #{email}, #{description}, #{version}, #{extendInfo}, #{isDelete});
+        <selectKey keyProperty="id" keyColumn="id" order="AFTER" resultType="Long">
+            select last_insert_id()
+        </selectKey>
+    </insert>
 
 <!--    <select id="queryById" parameterType="Long">-->
 <!--        select-->

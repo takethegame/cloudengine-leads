@@ -78,7 +78,8 @@ public class LeadsConfiguration {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
         sessionFactoryBean.setTypeAliasesPackage(typeAliasPackage);
-        List<Resource> rList = Arrays.asList(new PathMatchingResourcePatternResolver().getResource(mapperLocation));
+        PathMatchingResourcePatternResolver pmrpr = new PathMatchingResourcePatternResolver();
+        List<Resource> rList = Arrays.asList(pmrpr.getResources(mapperLocation));
         sessionFactoryBean.setMapperLocations(rList.toArray(new Resource[rList.size()]));
 //        sessionFactoryBean.setConfigLocation(new DefaultResourceLoader().getResource(configLocation));
 
