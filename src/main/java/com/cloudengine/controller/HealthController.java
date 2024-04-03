@@ -1,13 +1,12 @@
-package com.example;
+package com.cloudengine.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+
 public class HealthController {
-
-
     @GetMapping("/check")
     @ResponseBody
     public String health() {

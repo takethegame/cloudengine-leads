@@ -1,4 +1,4 @@
-package com.example.vo;
+package com.cloudengine.vo;
 
 public class LeadsVO {
     private String phoneNumber;
