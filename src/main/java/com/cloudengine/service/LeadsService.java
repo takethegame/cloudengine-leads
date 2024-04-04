@@ -20,10 +20,12 @@ public class LeadsService {
             queryResult.setDescription(leadsVO.getDescription());
             queryResult.setPhoneNumber(leadsVO.getPhoneNumber());
             queryResult.setEmail(leadsVO.getEmail());
+            queryResult.setName(leadsVO.getName());
             return leadsDAO.update(queryResult) ;
         }
 
         LeadsDO leadsDO = new LeadsDO();
+        leadsDO.setName(leadsDO.getName());
         leadsDO.setDescription(leadsVO.getDescription());
         leadsDO.setEmail(leadsVO.getEmail());
         leadsDO.setPhoneNumber(leadsVO.getPhoneNumber());

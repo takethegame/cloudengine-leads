@@ -7,6 +7,8 @@ public class LeadsDO {
 
     private Long id;
 
+    private String name;
+
     private String phoneNumber;
 
     private String email;
@@ -93,5 +95,13 @@ public class LeadsDO {
 
     public void setIsDelete(int isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

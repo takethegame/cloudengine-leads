@@ -18,14 +18,14 @@
 
 
     <sql id="column">
-        `id`, `create_Date`, `update_Date`, `phone_number`, `email`, `description`,`version`,
+        `id`, `name`, `create_Date`, `update_Date`, `phone_number`, `email`, `description`,`version`,
         `extend_info`, `is_delete`
     </sql>
 
     <insert id="insert" parameterType="com.cloudengine.dao.dataobject.LeadsDO">
         insert into leads
         (<include refid="column"/> )
-        value (#{id}, #{createDate}, #{updateDate}, #{phoneNumber}, #{email}, #{description}, #{version}, #{extendInfo}, #{isDelete});
+        value (#{id}, #{name}, #{createDate}, #{updateDate}, #{phoneNumber}, #{email}, #{description}, #{version}, #{extendInfo}, #{isDelete});
         <selectKey keyProperty="id" keyColumn="id" order="AFTER" resultType="Long">
             select last_insert_id()
         </selectKey>
@@ -41,13 +41,16 @@
     <update id="update" parameterType="com.cloudengine.dao.dataobject.LeadsDO" >
         update leads
         <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
             <if test="description != null">
-                description = #{description} ,
+                description = #{description},
             </if>
             <if test="email != null">
-                email = #{email} ,
+                email = #{email},
             </if>
-            update_Date = now() ,
+            update_Date = now(),
             version = version + 1
         </set>
         where phone_number = #{phoneNumber} and version = #{version}

@@ -1,6 +1,9 @@
 package com.cloudengine.vo;
 
 public class LeadsVO {
+
+    private String name;
+
     private String phoneNumber;
 
     private String email;
@@ -29,5 +32,13 @@ public class LeadsVO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
