@@ -37,10 +37,42 @@ public class LeadsController {
     @Autowired
     private LeadsService leadsService;
 
+
     @ApiOperation(value = "获取用户信息", notes = "根据用户ID获取用户信息")
     @PostMapping("/addleads")
     @ResponseBody
-    public String addLeads(@ApiParam  @RequestBody LeadsVO leadsVO) {
+    public String addLeads(@RequestParam("name") String name,
+                           @RequestParam("phoneNumber") String phoneNumber,
+                           @RequestParam("email") String email) {
+        Result<Boolean> r = new Result<>();
+
+        LeadsVO leadsVO = new LeadsVO();
+        leadsVO.setName(name);
+        leadsVO.setPhoneNumber(phoneNumber);
+        leadsVO.setEmail(email);
+
+        if(StringUtils.isEmpty(leadsVO.getPhoneNumber())
+                || StringUtils.isEmpty(leadsVO.getEmail())
+                || StringUtils.isEmpty(leadsVO.getName())
+                || ! LeadsCheckUtil.validPhoneNumber(leadsVO.getPhoneNumber())
+                || ! LeadsCheckUtil.validEmail(leadsVO.getEmail())
+        ) {
+            r.failed(false);
+
+            return JSON.toJSONString(r);
+        }
+        boolean b = leadsService.addLeads(leadsVO);
+
+
+        r.success(b);
+
+        return JSON.toJSONString(r);
+    }
+
+    @ApiOperation(value = "获取用户信息", notes = "根据用户ID获取用户信息")
+    @PostMapping("/addleads2")
+    @ResponseBody
+    public String addLeads2(@ApiParam  @RequestBody LeadsVO leadsVO) {
         Result<Boolean> r = new Result<>();
 
         if(StringUtils.isEmpty(leadsVO.getPhoneNumber())
