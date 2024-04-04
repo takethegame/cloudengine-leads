@@ -2,11 +2,13 @@ package com.cloudengine.dao;
 
 
 import com.cloudengine.dao.dataobject.LeadsDO;
+import com.cloudengine.dao.dataobject.PageQueryDO;
 import com.cloudengine.dao.mapper.LeadsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class LeadsDAO {
@@ -29,5 +31,14 @@ public class LeadsDAO {
 
     public boolean update(LeadsDO leadsDO) {
         return leadsMapper.update(leadsDO) > 0;
+    }
+
+
+    public int count(PageQueryDO pageQueryDO) {
+        return leadsMapper.count(pageQueryDO);
+    }
+
+    public List<LeadsDO> queryByPage(PageQueryDO pageQueryDO) {
+        return leadsMapper.queryList(pageQueryDO);
     }
 }

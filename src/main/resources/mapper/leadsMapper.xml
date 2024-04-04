@@ -60,30 +60,24 @@
 <!--        update note set deleted = #{deleted}, modified_time = now() where id = #{id}-->
 <!--    </update>-->
 
-<!--    <select id="count" parameterType="com.locationNote.note.persistence.dataobject.LocationNoteQueryParam">-->
-<!--        select count(1) from note-->
-<!--        <where>-->
-<!--            <if test="userId != null">-->
-<!--                user_id = #{userId}-->
-<!--            </if>-->
-<!--            <if test="title != null">-->
-<!--                title like "%#{title}%"-->
-<!--            </if>-->
-<!--        </where>-->
-<!--    </select>-->
+    <select id="count" parameterType="com.cloudengine.dao.dataobject.PageQueryDO" resultType="Integer">
+        select count(1) from leads
+        <where>
+            <if test="startDate != null">
+                create_date > #{startDate}
+            </if>
+        </where>
+    </select>
 
-<!--    <select id="queryByPage" parameterType="com.locationNote.note.persistence.dataobject.LocationNoteQueryParam">-->
-<!--        select-->
-<!--        <include refid="column"/>-->
-<!--        from note-->
-<!--        <where>-->
-<!--            <if test="userId != null">-->
-<!--                user_id = #{userId}-->
-<!--            </if>-->
-<!--            <if test="title != null">-->
-<!--                title like "%#{title}%"-->
-<!--            </if>-->
-<!--        </where>-->
-<!--        limit #{pageStart}, #{pageSize}-->
-<!--    </select>-->
+    <select id="queryList" parameterType="com.cloudengine.dao.dataobject.PageQueryDO" resultType="com.cloudengine.dao.dataobject.LeadsDO">
+        select
+        <include refid="column"/>
+        from leads
+        <where>
+            <if test="startDate != null">
+                create_date > #{startDate}
+            </if>
+        </where>
+        limit #{pageStart}, #{pageSize}
+    </select>
 </mapper>
