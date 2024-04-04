@@ -63,12 +63,6 @@ public class LeadsController {
 
     @GetMapping("/download-csv")
     public ResponseEntity<ByteArrayResource> downloadCsv(@Param("startDate") String startDate) throws IOException {
-        // 准备CSV数据
-        List<String[]> csvData = Arrays.asList(
-                new String[]{"Name", "Age", "Email"},
-                new String[]{"Alice", "25", "alice@example.com"},
-                new String[]{"Bob", "30", "bob@example.com"}
-        );
 
         // 设置HTTP响应头以触发文件下载
         HttpHeaders headers = new HttpHeaders();

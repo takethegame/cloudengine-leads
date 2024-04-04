@@ -52,7 +52,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.27</version>
+      <version>8.0.33</version>
     </dependency>
     <dependency>
       <groupId>org.mybatis</groupId>
@@ -73,7 +73,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.12.5</version>
+      <version>2.16.1</version>
     </dependency>
 
     <dependency>
