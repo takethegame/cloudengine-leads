@@ -1,4 +1,4 @@
-package com.cloudengine;
+package com.enginecloud;
 
 
 import com.mysql.cj.jdbc.MysqlDataSource;
@@ -33,7 +33,7 @@ public class LeadsConfiguration {
                 .apiInfo(appInfo())
                 .groupName("leads")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.cloudengine.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.enginecloud.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

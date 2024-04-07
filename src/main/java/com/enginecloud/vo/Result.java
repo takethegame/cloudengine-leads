@@ -1,4 +1,4 @@
-package com.cloudengine.vo;
+package com.enginecloud.vo;
 
 public class Result<T> {
     private T data;

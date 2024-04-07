@@ -1,4 +1,4 @@
-package com.cloudengine.dao.dataobject;
+package com.enginecloud.dao.dataobject;
 
 import java.util.Date;
 

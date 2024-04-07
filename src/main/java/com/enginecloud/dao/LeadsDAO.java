@@ -1,9 +1,9 @@
-package com.cloudengine.dao;
+package com.enginecloud.dao;
 
 
-import com.cloudengine.dao.dataobject.LeadsDO;
-import com.cloudengine.dao.dataobject.PageQueryDO;
-import com.cloudengine.dao.mapper.LeadsMapper;
+import com.enginecloud.dao.dataobject.LeadsDO;
+import com.enginecloud.dao.dataobject.PageQueryDO;
+import com.enginecloud.dao.mapper.LeadsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

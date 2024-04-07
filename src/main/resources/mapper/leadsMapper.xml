@@ -3,8 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.cloudengine.dao.mapper.LeadsMapper">
-<!--    <resultMap id="resultMap" type="com.cloudengine.dao.dataobject.LeadsDO">-->
+<mapper namespace="com.enginecloud.dao.mapper.LeadsMapper">
+<!--    <resultMap id="resultMap" type="com.enginecloud.dao.dataobject.LeadsDO">-->
 <!--        <result column="id" property="id" jdbcType="BIGINT" javaType="Long"/>-->
 <!--        <result column="create_Date" property="createDate" jdbcType="DATE" javaType="java.util.Date"/>-->
 <!--        <result column="update_Date" property="updateDate" jdbcType="DATE" javaType="java.util.Date"/>-->
@@ -22,7 +22,7 @@
         `extend_info`, `is_delete`
     </sql>
 
-    <insert id="insert" parameterType="com.cloudengine.dao.dataobject.LeadsDO">
+    <insert id="insert" parameterType="com.enginecloud.dao.dataobject.LeadsDO">
         insert into leads
         (<include refid="column"/> )
         value (#{id}, #{name}, #{createDate}, #{updateDate}, #{phoneNumber}, #{email}, #{description}, #{version}, #{extendInfo}, #{isDelete});
@@ -31,14 +31,14 @@
         </selectKey>
     </insert>
 
-    <select id="queryByPhoneNumber" parameterType="String" resultType="com.cloudengine.dao.dataobject.LeadsDO">
+    <select id="queryByPhoneNumber" parameterType="String" resultType="com.enginecloud.dao.dataobject.LeadsDO">
         select
         <include refid="column"/>
         from leads
         where phone_number = #{phoneNumber}
     </select>
 
-    <update id="update" parameterType="com.cloudengine.dao.dataobject.LeadsDO" >
+    <update id="update" parameterType="com.enginecloud.dao.dataobject.LeadsDO" >
         update leads
         <set>
             <if test="name != null">
@@ -60,7 +60,7 @@
 <!--        update note set deleted = #{deleted}, modified_time = now() where id = #{id}-->
 <!--    </update>-->
 
-    <select id="count" parameterType="com.cloudengine.dao.dataobject.PageQueryDO" resultType="Integer">
+    <select id="count" parameterType="com.enginecloud.dao.dataobject.PageQueryDO" resultType="Integer">
         select count(1) from leads
         <where>
             <if test="startDate != null">
@@ -69,7 +69,7 @@
         </where>
     </select>
 
-    <select id="queryList" parameterType="com.cloudengine.dao.dataobject.PageQueryDO" resultType="com.cloudengine.dao.dataobject.LeadsDO">
+    <select id="queryList" parameterType="com.enginecloud.dao.dataobject.PageQueryDO" resultType="com.enginecloud.dao.dataobject.LeadsDO">
         select
         <include refid="column"/>
         from leads
