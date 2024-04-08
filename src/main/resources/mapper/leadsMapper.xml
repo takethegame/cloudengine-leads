@@ -4,17 +4,17 @@
 
 
 <mapper namespace="com.enginecloud.dao.mapper.LeadsMapper">
-<!--    <resultMap id="resultMap" type="com.enginecloud.dao.dataobject.LeadsDO">-->
-<!--        <result column="id" property="id" jdbcType="BIGINT" javaType="Long"/>-->
-<!--        <result column="create_Date" property="createDate" jdbcType="DATE" javaType="java.util.Date"/>-->
-<!--        <result column="update_Date" property="updateDate" jdbcType="DATE" javaType="java.util.Date"/>-->
-<!--        <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" javaType="String"/>-->
-<!--        <result column="email" property="email" jdbcType="VARCHAR" javaType="String"/>-->
-<!--        <result column="description" property="description" jdbcType="VARCHAR" javaType="String"/>-->
-<!--        <result column="version" property="version" jdbcType="int" javaType="Integer"/>-->
-<!--        <result column="extend_info" property="extendInfo" jdbcType="VARCHAR" javaType="String"/>-->
-<!--        <result column="is_delete" property="isDelete" jdbcType="TINYINT" javaType="Integer"/>-->
-<!--    </resultMap>-->
+    <resultMap id="resultMap" type="com.enginecloud.dao.dataobject.LeadsDO">
+        <result column="id" property="id" jdbcType="BIGINT" javaType="Long"/>
+        <result column="create_Date" property="createDate" jdbcType="DATE" javaType="java.util.Date"/>
+        <result column="update_Date" property="updateDate" jdbcType="DATE" javaType="java.util.Date"/>
+        <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" javaType="String"/>
+        <result column="email" property="email" jdbcType="VARCHAR" javaType="String"/>
+        <result column="description" property="description" jdbcType="VARCHAR" javaType="String"/>
+        <result column="version" property="version" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="extend_info" property="extendInfo" jdbcType="VARCHAR" javaType="String"/>
+        <result column="is_delete" property="isDelete" jdbcType="TINYINT" javaType="Integer"/>
+    </resultMap>
 
 
     <sql id="column">
@@ -69,7 +69,7 @@
         </where>
     </select>
 
-    <select id="queryList" parameterType="com.enginecloud.dao.dataobject.PageQueryDO" resultType="com.enginecloud.dao.dataobject.LeadsDO">
+    <select id="queryList" parameterType="com.enginecloud.dao.dataobject.PageQueryDO" resultMap="resultMap">
         select
         <include refid="column"/>
         from leads
