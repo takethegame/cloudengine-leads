@@ -40,13 +40,15 @@ public class LeadsController {
     @ResponseBody
     public String addLeads(@RequestParam("name") String name,
                            @RequestParam("phoneNumber") String phoneNumber,
-                           @RequestParam("email") String email) {
+                           @RequestParam("email") String email,
+                           @RequestParam("description")String description) {
         Result<Boolean> r = new Result<>();
 
         LeadsVO leadsVO = new LeadsVO();
         leadsVO.setName(name);
         leadsVO.setPhoneNumber(phoneNumber);
         leadsVO.setEmail(email);
+        leadsVO.setDescription(description);
 
         if(StringUtils.isEmpty(leadsVO.getPhoneNumber())
                 || StringUtils.isEmpty(leadsVO.getEmail())
